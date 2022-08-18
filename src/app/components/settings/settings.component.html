@@ -1,0 +1,52 @@
+<div class="settings-page" *ngIf="currentUser">
+    <div class="container page">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-xs-12">
+                <h1 class="text-xs-center">Settings</h1>
+                <mc-backend-error-messages [backendErrors]="backendErrors$ | async" *ngIf="backendErrors$ | async">
+                </mc-backend-error-messages>
+                <form [formGroup]="form" (ngSubmit)="submit()">
+                    <fieldset>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control form-control-lg" formControlName="image"
+                                placeholder="URL of profile picture">
+                        </fieldset>
+                    </fieldset>
+
+                    <fieldset>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control form-control-lg" formControlName="username"
+                                placeholder="Username">
+                        </fieldset>
+                    </fieldset>
+
+                    <fieldset>
+                        <textarea formControlName="biography" class="form-control form-control-lg"
+                            placeholder="Short biography"></textarea>
+                    </fieldset>
+
+                    <fieldset>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control form-control-lg" formControlName="email"
+                                placeholder="Email">
+                        </fieldset>
+                    </fieldset>
+
+                    <fieldset>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control form-control-lg" formControlName="password"
+                                placeholder="Password">
+                        </fieldset>
+                    </fieldset>
+                    <button type="submit" class="btn btn-lg btn-primaty pull-xs-right">
+                        update settings
+                    </button>
+                </form>
+
+                <hr />
+                <button type="text" class="btn btn-outline-danger" (click)="logout()"> Log out</button>
+
+            </div>
+        </div>
+    </div>
+</div>
